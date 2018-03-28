@@ -1,10 +1,10 @@
 #creates a binary tree that optimizes searching
-class Node(self, value):
-    def __init__:
+class Node:
+    def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
-    def add(new):
+    def add(self, new):
         if new > self.value:
             if self.right is None:
                 self.right = Node(new)
@@ -15,7 +15,7 @@ class Node(self, value):
                 self.left = Node(new)
             else:
                 self.left.add(new)
-    def search(target):
+    def search(self, target):
         if target == self.value:
             return True
         if target < self.value:

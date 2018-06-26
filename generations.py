@@ -17,6 +17,7 @@ def create_pairings(people_list):
     input = list of people (one generation)
     output = paired list of people
     '''
+    random.shuffle(people_list)
     output_list = []
     for person1 in people_list:
         if person1.gender == 0 and person1.paired == False:
@@ -26,4 +27,3 @@ def create_pairings(people_list):
                     person1.paired = True
                     person2.paired = True
     return output_list
-    

@@ -48,7 +48,27 @@ def count_last_names(people_list):
     '''takes a list of people and returns the number of distinct last names in the person objects in the list
     input: list of person objects
     output: int'''
-    set_of_names = set()
+    name_list = []
     for person in people_list:
-        set_of_names.update(person.lastname)
-    return len(set_of_names)
+        name_list.append(person.lastname)
+    return len(set(name_list))
+
+if __name__ == '__main__':
+    l = []
+    acc = 0
+    for i in range(100):
+        l.append(Person('Smith', 1))
+        l.append(Person('Johnson', 1))
+        l.append(Person('Williams', 1))
+        l.append(Person('Brown', 1))
+        l.append(Person('Jones', 1))
+        l.append(Person('Miller', 1))
+        l.append(Person('Davis', 1))
+        l.append(Person('Garcia', 1))
+        l.append(Person('Rodriguez', 1))
+        l.append(Person('Wilson', 1))
+    while count_last_names(l) > 1:
+        acc += 1
+        paired = create_pairings(l)
+        l = next_generation(paired)
+    print(l[0].generation)

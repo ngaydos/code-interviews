@@ -43,3 +43,12 @@ def next_generation(paired_list):
         for i in range(random.randint(0, 3)):
             output.append(Person(pair[0].lastname, pair[0].generation + 1))
     return output
+
+def count_last_names(people_list):
+    '''takes a list of people and returns the number of distinct last names in the person objects in the list
+    input: list of person objects
+    output: int'''
+    set_of_names = set()
+    for person in people_list:
+        set_of_names.update(person.lastname)
+    return len(set_of_names)

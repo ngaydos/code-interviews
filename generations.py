@@ -22,9 +22,9 @@ def create_pairings(people_list):
     #creates an empty list to add to
     output_list = []
     for person1 in people_list:
-        if person1.gender == 0 and person1.paired == False:
+        if person1.gender == 0:
             for person2 in people_list:
-                if person2.gender == 1 and person2.paired == False:
+                if person2.gender == 1 and person2.paired == False  and person1.paired == False:
                     output_list.append([person1, person2])
                     person1.paired = True
                     person2.paired = True
@@ -54,6 +54,7 @@ def count_last_names(people_list):
     return len(set(name_list))
 
 if __name__ == '__main__':
+    #this script is currently non-functional. Issue appears to be in the pairing and next generation
     l = []
     acc = 0
     for i in range(100):
@@ -69,6 +70,7 @@ if __name__ == '__main__':
         l.append(Person('Wilson', 1))
     while count_last_names(l) > 1:
         acc += 1
+        print(count_last_names(l))
         paired = create_pairings(l)
         l = next_generation(paired)
     print(l[0].generation)
